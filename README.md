@@ -50,13 +50,16 @@ Adicionalmente, busquei incluir no desafio alguns detalhes relevantes aprendidos
 
 ## 📁 Estrutura de Pastas
 
+```bash
 src/
-├── controllers/ → Lógica das rotas (Users, Sessions, Movies, Tags)
-├── routes/ → Definição das rotas
-├── database/ → Migrations e configuração SQLite
-├── utils/ → Funções auxiliares (ex: validar e-mails)
-├── middlewares/ → Autenticação JWT
-├── config/ → Arquivo knexfile.js
+├── controllers/     # Lógica das rotas (Users, Sessions, Movies, Tags)
+├── routes/          # Definição das rotas
+├── database/        # Migrations e configuração SQLite
+├── utils/           # Funções auxiliares (ex: validar e-mails)
+├── middlewares/     # Autenticação JWT
+├── config/          # Arquivo knexfile.js
+```
+
 
 
 
@@ -89,25 +92,24 @@ Editar
 JWT_SECRET=sua_chave_secreta
 PORT=3333
 
+
 ## 🧪 Exemplos de uso
 A API pode ser testada via ferramentas como Insomnia ou Postman.
 
-Exemplo de criação de usuário:
+**Exemplo de criação de usuário:**
 
-bash
-Copiar
-Editar
+```json
 POST /users
 {
   "name": "Bernardo",
   "email": "bernardo@email.com",
   "password": "123456"
 }
-Exemplo de criação de filme:
+```
 
-bash
-Copiar
-Editar
+**Exemplo de criação de filme:**
+
+```json
 POST /movies
 Headers: Authorization: Bearer <token>
 {
@@ -116,6 +118,9 @@ Headers: Authorization: Bearer <token>
   "rating": 5,
   "tags": ["ficção", "espaço"]
 }
+```
+
+
 
 
 
