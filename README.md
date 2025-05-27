@@ -1,11 +1,8 @@
-<h1 align="center"> API RocketMovies </h1>
+<h1 align="center"> RocketMovies Back-End </h1>
 
-<p align="center">
-Desafio promovido no nível 8 da trilha Explorer da Rocketseat - Introdução ao Nodejs
-<br>
+
+<p align="center"> API desenvolvida em Node.js para um sistema de gestão de filmes, notas e tags, com autenticação de usuários e CRUD completo. Projeto desenvolvido durante o programa Explorer da Rocketseat.
 </p>
-
-<p align="center"> O projeto consiste na criação de uma aplicação back-end com Nodejs, onde o usuário cadastra um filme, preenche com algumas informações (nome, descrição, nota), e cria tags relacionadas a ele.
 
 <br>
 
@@ -21,8 +18,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - Node.js
 - Express
-- Knex.js
 - SQLite
+- Knex.js
+- JWT (Autenticação)
+- Bcrypt.js (Hash de senhas)
+- dotenv
+- CORS
 <br><br>
 
 
@@ -36,12 +37,93 @@ Adicionalmente, busquei incluir no desafio alguns detalhes relevantes aprendidos
 - <p> Validação de E-mail;
 - <p> Aplicação do Cascade, para garantir que uma tag será excluída caso o usuário opte por excluir a nota.<br><br>
 
-## ⚙️ Utilização
+## 🚀 Funcionalidades
 
-1. instale as dependências com: ``` npm install ```<br><br>
-2. inicie o projeto com: ``` npm run dev ```<br><br>
-3. execute a migrations para criação do banco de dados com: ``` npm run migrations ```
+- Cadastro e login de usuários com autenticação JWT
+- Atualização de perfil com senha
+- Criação, listagem, atualização e exclusão de filmes
+- Avaliação de filmes com notas
+- Tags para organização e filtro
+- Listagem de filmes por título e tags
+- Middleware de autenticação protegendo rotas privadas
 
+
+## 📁 Estrutura de Pastas
+
+src/
+├── controllers/ → Lógica das rotas (Users, Sessions, Movies, Tags)
+├── routes/ → Definição das rotas
+├── database/ → Migrations e configuração SQLite
+├── utils/ → Funções auxiliares (ex: validar e-mails)
+├── middlewares/ → Autenticação JWT
+├── config/ → Arquivo knexfile.js
+
+
+
+## 📦 Instalação e Uso
+
+```bash
+# Clone o repositório
+git clone https://github.com/BernardoSa01/rocketmovies-backend.git
+
+# Acesse a pasta
+cd rocketmovies-backend
+
+# Instale as dependências
+npm install
+
+# Rode as migrations
+npx knex migrate:latest
+
+# Inicie o servidor
+npm run dev
+```
+
+
+## 📌 Variáveis de Ambiente
+Crie um arquivo .env com as seguintes variáveis:
+
+env
+Copiar
+Editar
+JWT_SECRET=sua_chave_secreta
+PORT=3333
+
+## 🧪 Exemplos de uso
+A API pode ser testada via ferramentas como Insomnia ou Postman.
+
+Exemplo de criação de usuário:
+
+bash
+Copiar
+Editar
+POST /users
+{
+  "name": "Bernardo",
+  "email": "bernardo@email.com",
+  "password": "123456"
+}
+Exemplo de criação de filme:
+
+bash
+Copiar
+Editar
+POST /movies
+Headers: Authorization: Bearer <token>
+{
+  "title": "Interestelar",
+  "description": "Filme sobre viagens no tempo",
+  "rating": 5,
+  "tags": ["ficção", "espaço"]
+}
+
+
+
+📬 Contato
+Conecte-se comigo:
+
+- [LinkedIn](https://www.linkedin.com/in/bernardosa01)
+- [E-mail](mailto: bernardo_nf@hotmail.com)
 
 
 
